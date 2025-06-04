@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <title>Ism va Harf Tekshiruvi</title>
+</head>
+<body>
+  <h2>Ismingizni va bitta harf kiriting</h2>
+
+  <label for="name">Ism:</label>
+  <input type="text" id="name"><br><br>
+
+  <label for="letter">Harf:</label>
+  <input type="text" id="letter" maxlength="1"><br><br>
+
+  <button onclick="tekshir()">Tekshir</button>
+
+  <p id="natija"></p>
+
+  <script>
+    function tekshir() {
+      const ism = document.getElementById("name").value.toLowerCase();
+      const harf = document.getElementById("letter").value.toLowerCase();
+      const natija = document.getElementById("natija");
+
+      if (harf.length !== 1) {
+        natija.innerText = "Iltimos, faqat bitta harf kiriting.";
+        return;
+      }
+
+      if (ism.includes(harf)) {
+        natija.innerText = "✅ Ha, bu harf ismingiz ichida ishtirok etgan.";
+      } else {
+        natija.innerText = "❌ Yo‘q, bu harf ismingiz ichida ishtirok etmagan.";
+      }
+    }
+  </script>
+</body>
+</html>
